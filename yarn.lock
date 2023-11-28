@@ -942,7 +942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/postgres@npm:^0.5.0":
+"@vercel/postgres@npm:^0.5.1":
   version: 0.5.1
   resolution: "@vercel/postgres@npm:0.5.1"
   dependencies:
@@ -4968,7 +4968,7 @@ __metadata:
     "@types/node": 20.5.7
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.14
-    "@vercel/postgres": ^0.5.0
+    "@vercel/postgres": ^0.5.1
     "@vercel/style-guide": ^5.0.1
     autoprefixer: 10.4.15
     bcrypt: ^5.1.1
