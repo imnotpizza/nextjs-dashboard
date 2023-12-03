@@ -10,7 +10,7 @@ export default function Page() {
       </div>
       <div>
         <h1 className="text-[red]">Nextjs Blogs</h1>
-        <button>login</button>
+        <Link href="/dashboard">dashboard</Link>
       </div>
     </main>
   );
