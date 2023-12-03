@@ -10,7 +10,10 @@ import {
 
 /**
  * async 함수를 리턴: 데이터 fetch 를 블로킹으로 호출
+ * await을 컴포넌트 내에서 바로 사용함
  *
+ * 캐싱
+ * unstable_noStore: 서버컴포넌트나 data fetch함수에서 정적 렌더링 거부
  */
 export default async function Page() {
   const revenue = await fetchRevenue();
