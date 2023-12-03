@@ -4,7 +4,7 @@ import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
 import { Suspense } from 'react';
-import { RevenueChartSkeleton } from '@/app/ui/skeletons';
+import { InvoiceSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
 
 /**
  * async 함수를 리턴: 데이터 fetch 를 블로킹으로 호출
@@ -14,7 +14,7 @@ import { RevenueChartSkeleton } from '@/app/ui/skeletons';
  * unstable_noStore: 서버컴포넌트나 data fetch함수에서 정적 렌더링 거부
  */
 export default async function Page() {
-  const latestInvoices = await fetchLatestInvoices();
+
   const {
     numberOfCustomers,
     numberOfInvoices,
@@ -40,7 +40,9 @@ export default async function Page() {
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
-        <LatestInvoices latestInvoices={latestInvoices} />
+        <Suspense fallback={<InvoiceSkeleton />}>
+          <LatestInvoices />
+        </Suspense>
       </div>
     </main>
   );
