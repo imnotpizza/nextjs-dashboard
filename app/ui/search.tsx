@@ -7,7 +7,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   // useSearchParams:
   const searchParams = useSearchParams();
   const { replace } = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathname(); // 현재 경로 획득
 
   function handleSearch(term: string) {
     //URLSearchParams: 쿼리파라미터의 추가, 제거를 쉽게할수 있도록 도와줌
@@ -26,6 +26,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
         Search
       </label>
       <input
+        defaultValue={searchParams.get('query')?.toString()} // query내 저장된 값
         className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
         onChange={(e) => {
