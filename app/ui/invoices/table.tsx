@@ -10,7 +10,8 @@ export default async function InvoicesTable({
 }: {
   query: string;
   currentPage: number;
-}) {
+  }) {
+  // query, currentPage를 사용하여 data fetch 수행
   const invoices = await fetchFilteredInvoices(query, currentPage);
 
   return (
