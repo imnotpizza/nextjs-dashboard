@@ -4,7 +4,15 @@ import Table from '@/app/ui/invoices/table';
 import { CreateInvoice } from '@/app/ui/invoices/buttons';
 import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
+import { fetchInvoicesPages } from '@/app/lib/data';
 import { Suspense } from 'react';
+
+/**
+ * useSearchParams vs searchParams props
+ * 
+ * useSearchParams: hook이기때문에 client 컴포넌트에서 주로 사용
+ * searchParams props: props로 넘겨줘 컴포넌트 초기화
+ */
 
 export default async function Page({
   searchParams,
@@ -13,10 +21,11 @@ export default async function Page({
     query?: string;
     page?: string;
   };
-}) {
+  }) {
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
 
+  const totalPages = await fetchInvoicesPages(query);
 
   return (
     <div className="w-full">
@@ -31,7 +40,7 @@ export default async function Page({
         <Table query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
-        {/* <Pagination totalPages={totalPages} /> */}
+        <Pagination totalPages={totalPages} />
       </div>
     </div>
   );
