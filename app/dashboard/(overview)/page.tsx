@@ -9,6 +9,7 @@ import {
   InvoiceSkeleton,
   RevenueChartSkeleton,
 } from '@/app/ui/skeletons';
+import FetchDataPage from '@/app/ui/dashboard/fetch-data';
 
 /**
  * async 함수를 리턴: 데이터 fetch 를 블로킹으로 호출
@@ -23,6 +24,11 @@ export default async function Page() {
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
       </h1>
+      <div>
+        <Suspense fallback={<div>loading data....</div>}>
+          <FetchDataPage />
+        </Suspense>
+      </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Suspense fallback={<CardSkeleton />}>
           <CardWrapper />
