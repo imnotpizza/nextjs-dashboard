@@ -6,5 +6,10 @@
 import DashboardSkeleton from '@/app/ui/skeletons';
 
 export default function Loading() {
-  return <DashboardSkeleton />;
+  return (
+    <>
+      <h1>from loading page...</h1>
+      <DashboardSkeleton />
+    </>
+  );
 }
