@@ -1,3 +1,5 @@
+'use server'
+
 function getRandomNumber() {
   // 0부터 1 사이의 난수를 생성한 후 1부터 10까지의 범위로 변환
   var randomNumber = Math.floor(Math.random() * 10) + 1;

@@ -26,7 +26,7 @@ export default async function Page() {
         Dashboard
       </h1>
       <div className="w-full">
-        <Suspense fallback={<RevenueChartSkeleton />}>
+        <Suspense fallback={<div>todo laoding....</div>}>
           <SuspenseFetch />
         </Suspense>
       </div>
